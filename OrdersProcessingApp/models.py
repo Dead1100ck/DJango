@@ -1,7 +1,8 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.contrib.auth.models import AbstractBaseUser
 
-# Create your models here.
+
 class Client(models.Model):
 	second_name = models.CharField(max_length=30)
 	first_name = models.CharField(max_length=30)

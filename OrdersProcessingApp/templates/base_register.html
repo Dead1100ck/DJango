@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container content m-auto">
+	<div class="form m-auto">
+		<h3>Регистрация</h3>
+
+		<form method="POST">
+			{% csrf_token %}
+
+			<ul>
+			{% for field in form %}
+				<li>{{ field.label }}</li>
+				<li>{{ field }}</li>
+			{% endfor %}
+			</ul>
+			
+			<input class="submit-btn" type="submit" value="Войти">
+		</form>
+	</div>
+</div>
+{% endblock %}

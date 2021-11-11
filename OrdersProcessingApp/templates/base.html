@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+	<title>{{ title }}</title>
+</head>
+<body>
+	<header class="header">
+		<div class="container">
+			<div class="nav">
+				<a href="/"><img src="logo.png" alt="it's image"></a>
+
+				<ul class="menu">
+					<li><a href="/register/">Регистрация</a></li>
+					<li><a href="/login/">Вход</a></li>
+				</ul>
+			</div>
+		</div>
+	</header>
+
+	{% block content %}
+	<div class="container content">
+		<div class="column">
+			<h3 class="title">Title</h3>
+			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, molestias dignissimos a amet, obcaecati quod accusantium! Aut, possimus recusandae quos commodi! Saepe ullam odio debitis voluptatibus iste ad cum ducimus.</p>
+		</div>
+
+		<div class="column">
+			<h3 class="title">Title</h3>
+			<p class="text">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Quod, necessitatibus perspiciatis rem libero aperiam maxime quibusdam, sequi earum non quisquam incidunt? Optio repellendus, veniam molestiae veritatis! Modi illo repudiandae error.</p>
+		</div>
+
+		<div class="column">
+			<h3 class="title">Title</h3>
+			<p class="text">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ipsum distinctio a corporis, quas saepe nam, ratione obcaecati? Vero illum laudantium reiciendis eveniet, voluptas aut nihil dicta fuga aliquid nobis. Laboriosam?</p>
+		</div>
+	</div>
+	{% endblock %}
+
+	<footer class="footer">
+		<div class="container">
+			<div class="nav">
+				<a href="/"><img src="logo.png" alt="it's image"></a>
+
+				<ul class="menu">
+					<li><a href="/contacts/">Контакты</a></li>
+					<li><a href="/comments/">Озывы</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
