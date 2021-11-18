@@ -10,43 +10,66 @@
 	<header class="header">
 		<div class="container">
 			<div class="nav">
-				<a href="/"><img src="logo.png" alt="it's image"></a>
+				<a href="{% url 'home_page' %}"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a>
 
 				<ul class="menu">
-					<li><a href="/register/">Регистрация</a></li>
-					<li><a href="/login/">Вход</a></li>
+					{% if request.user.is_authenticated %}
+					<li><a href="{% url 'user_account_page' %}">Ваш аккаунт</a></li>
+					<li><a href="{% url 'user_logout' %}">Выход</a></li>
+					{% else %}
+					<li><a href="{% url 'register_page' %}">Регистрация</a></li>
+					<li><a href="{% url 'login_page' %}">Вход</a></li>
+					{% endif %}
 				</ul>
 			</div>
 		</div>
 	</header>
 
-	{% block content %}
-	<div class="container content">
-		<div class="column">
-			<h3 class="title">Title</h3>
-			<p class="text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, molestias dignissimos a amet, obcaecati quod accusantium! Aut, possimus recusandae quos commodi! Saepe ullam odio debitis voluptatibus iste ad cum ducimus.</p>
-		</div>
+	<div class="wrapper">
+		{% block content %}
+		<div class="container">
+			<div class="content">
+				<div class="column">
+					<h2 class="title">О нас</h2>
+				</div>
+			</div>
+			<div class="content">
+				<div class="column">
+					<h3 class="title">Чем мы занимаемся?</h3>
+					<p class="text">
+						Наша компания занимается разработкой разного рода приложений под заказ. Быстро, качественно, не дорого.
+					</p>
+				</div>
 
-		<div class="column">
-			<h3 class="title">Title</h3>
-			<p class="text">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Quod, necessitatibus perspiciatis rem libero aperiam maxime quibusdam, sequi earum non quisquam incidunt? Optio repellendus, veniam molestiae veritatis! Modi illo repudiandae error.</p>
-		</div>
+				<div class="column">
+					<h3 class="title">Как сделать заказ?</h3>
+					<p class="text">
+						Вы можете зарегистрироваться на нашем сайте и оставить заявку, либо прийти в нашу компанию. Статус вашей заявки вы можете посмотреть на сайте, в вашем профиле.
+					</p>
+				</div>
 
-		<div class="column">
-			<h3 class="title">Title</h3>
-			<p class="text">Lorem ipsum dolor sit amet consectetur adipisicing, elit. Ipsum distinctio a corporis, quas saepe nam, ratione obcaecati? Vero illum laudantium reiciendis eveniet, voluptas aut nihil dicta fuga aliquid nobis. Laboriosam?</p>
+				<div class="column">
+					<h3 class="title">Почему именно мы?</h3>
+					<p class="text">
+						Наши сотрудники работают непокладая рук, что бы сделать ваш проект как можно быстрее, дешевле и качественнее.
+					</p>
+				</div>
+			</div>
+			<div>
+				<a href="{% url 'register_page' %}"></a>
+			</div>
 		</div>
+		{% endblock %}
 	</div>
-	{% endblock %}
 
 	<footer class="footer">
 		<div class="container">
 			<div class="nav">
-				<a href="/"><img src="logo.png" alt="it's image"></a>
+				<a href="/"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a>
 
 				<ul class="menu">
-					<li><a href="/contacts/">Контакты</a></li>
-					<li><a href="/comments/">Озывы</a></li>
+					<li><a href="{% url 'contacts_page' %}">Контакты</a></li>
+					<li><a href="{% url 'comments_page' %}">Озывы</a></li>
 				</ul>
 			</div>
 		</div>

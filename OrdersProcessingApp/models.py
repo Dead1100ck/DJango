@@ -1,25 +1,21 @@
 from django.db import models
-from django.core.validators import MaxValueValidator, MinValueValidator
-from django.contrib.auth.models import AbstractBaseUser
+from django.conf import settings
 
 
 class Client(models.Model):
-	second_name = models.CharField(max_length=30)
+	id_custom_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	first_name = models.CharField(max_length=30)
-	middle_name = models.CharField(max_length=30)
+	second_name = models.CharField(max_length=30)
 	email = models.CharField(max_length=30)
 	phone = models.CharField(max_length=11, unique=True)
-	login = models.CharField(max_length=30)
-	password = models.CharField(max_length=30)
-
+	
 	def __str__(self):
 		return self.email + " " + self.phone
 
 
 class Comment(models.Model):
-	second_name = models.CharField(max_length=30)
 	first_name = models.CharField(max_length=30)
-	middle_name = models.CharField(max_length=30)
+	second_name = models.CharField(max_length=30)
 	title = models.CharField(max_length=30, blank=True)
 	description = models.TextField()
 	email = models.CharField(max_length=30)
@@ -53,18 +49,12 @@ class Project(models.Model):
 
 
 class Employee(models.Model):
-	second_name = models.CharField(max_length=30)
+	id_custom_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	first_name = models.CharField(max_length=30)
-	middle_name = models.CharField(max_length=30)
+	second_name = models.CharField(max_length=30)
 	address = models.CharField(max_length=50)
 	email = models.CharField(max_length=30)
-	login = models.CharField(max_length=30)
-	password = models.CharField(max_length=30)
-	status = models.IntegerField(validators=[
-        MaxValueValidator(3),
-        MinValueValidator(0)
-    ])
 	id_team = models.ForeignKey(Team, on_delete=models.CASCADE)
 
 	def __str__(self):
-		return self.second_name + " " + self.first_name + " " + self.middle_name
+		return self.first_name + ' ' + self.second_name 

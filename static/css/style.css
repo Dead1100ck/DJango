@@ -1,21 +1,33 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+* {
 	padding: 0;
 	margin: 0;
+}
+
+body {
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+
+html, body {
+	height: 100%;
+	font-family: 'Montserrat';
+	font-stretch: 600;
 }
 
 a {
 	text-decoration: none;
+	font-size: 22px;
 }
 
 header, footer {
-	background-color: gray;
+	background-color: steelblue;
 }
 
 footer {
-	position: absolute;
-	bottom: 0px;
-	width: 100%;
+	flex-shrink: 0;
 }
 
 ul {
@@ -23,8 +35,13 @@ ul {
 	padding: 0;
 }
 
-form > ul > li > input {
-	margin-bottom: 1em;
+.wrapper {
+	flex: 1 0 auto;
+}
+
+.img-logo {
+	width: 100px;
+	height: 75px;
 }
 
 .container {
@@ -57,6 +74,11 @@ form > ul > li > input {
 
 .title {
 	text-align: center;
+	margin: 1em 0 2em 0;
+}
+
+.text-center {
+	text-align: center;
 }
 
 .text {
@@ -66,7 +88,6 @@ form > ul > li > input {
 .form {
 	display: flex;
 	flex-direction: column;
-
 	align-items: center;
 }
 
@@ -76,4 +97,35 @@ form > ul > li > input {
 
 .submit-btn {
 	width: 100%;
+}
+
+.field-error {
+	color: red;
+	font-size: 12px;
+}
+
+.empty {
+	margin-bottom: 1em;
+}
+
+.info-table {
+	border: 1px solid black;
+}
+
+.info-table > tbody > tr {
+	margin-bottom: 1em;
+}
+
+.info-table > tbody > tr > td {
+	padding: 1em;
+}
+
+.border-bottom {
+	border-bottom: 1px solid black;
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
+.empty-border {
+	border-left: 1px solid black;
 }

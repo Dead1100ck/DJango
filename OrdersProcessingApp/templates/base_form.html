@@ -3,7 +3,7 @@
 {% block content %}
 <div class="container content m-auto">
 	<div class="form m-auto">
-		<h3 class='title'>Регистрация</h3>
+		<h3 class='title'>{{ title }}</h3>
 
 		<form method="POST">
 			{% csrf_token %}
@@ -12,13 +12,21 @@
 			{% for field in form %}
 				<li>{{ field.label }}</li>
 				<li>{{ field }}</li>
-				<li class="field-error">{{ field.errors }}</li>
-				<li class="empty"></li>
 			{% endfor %}
 			</ul>
 			
-			<input class="submit-btn" type="submit" value="Зарегистрироваться">
+			<input class="submit-btn" type="submit" value="Создать">
 		</form>
+	</div>
+</div>
+
+<div class="container m-auto">
+	<div class="content">
+		<table>
+			{% for e in elements %}
+				<p>{{ e }}</p>
+			{% endfor %}
+		</table>
 	</div>
 </div>
 {% endblock %}

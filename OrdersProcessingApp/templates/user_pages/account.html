@@ -1,0 +1,58 @@
+{% extends '../base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="content">
+		<div class="column">
+			<h3 class="title">Ваш профиль</h3>
+			<table class="info-table m-auto">
+				<tbody>
+					<tr>
+						<td>Логин:</td>
+						<td>{{ user.login }}</td>
+					</tr>
+					<tr>
+						<td>Пароль:</td>
+						<td>{{ user.password }}</td>
+					</tr>
+					<tr>
+						<td>Имя:</td>
+						<td>{{ user.first_name }}</td>
+					</tr>
+					<tr>
+						<td>Фамилия:</td>
+						<td>{{ user.second_name }}</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td>{{ user.email }}</td>
+					</tr>
+					<tr>
+						<td>Телефон:</td>
+						<td>{{ user.phone }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="content border-bottom">
+		<div class="column">
+			<p class="title"><a href="">Список ваших заказов</a></p>
+		</div>
+		<div class="column">
+			<p class="title"><a href="">Список ваших комментариев</a></p>
+		</div>
+	</div>
+
+	<div class="content">
+		<div class="column">
+			{% include 'user_pages/contract_page.html' %}
+		</div>
+		<div class="empty-border"></div>
+		<div class="column">
+			{% include 'user_pages/comments_page.html' %}
+		</div>
+	</div>
+</div>
+{% endblock %}
