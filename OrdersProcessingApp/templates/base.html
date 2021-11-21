@@ -10,7 +10,22 @@
 	<header class="header">
 		<div class="container">
 			<div class="nav">
-				<a href="{% url 'home_page' %}"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a>
+				<ul class="menu">
+					<li><a href="/"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a></li>
+					<li class="home-link"><a href="/">На главную</a></li>
+				</ul>
+
+				{% if request.user.is_authenticated and request.user.is_staff %}
+				<ul class="menu">
+					<li><a href="{% url 'employee_orders' %}">Заказы</a></li>
+					<li><a href="">Выполненные заказы</a></li>
+				</ul>
+				{% elif request.user.is_authenticated and not request.user.is_staff %}
+				<ul class="menu">
+					<li><a href="{% url 'user_account_page' %}">Сделать заказ</a></li>
+					<li><a href="{% url 'add_comment_page' %}">Оставить комментарий</a></li>
+				</ul>
+				{% endif %}
 
 				<ul class="menu">
 					{% if request.user.is_authenticated %}
@@ -67,10 +82,13 @@
 			<div class="nav">
 				<a href="/"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a>
 
+				{% if not request.user.is_staff %}
 				<ul class="menu">
-					<li><a href="{% url 'contacts_page' %}">Контакты</a></li>
-					<li><a href="{% url 'comments_page' %}">Озывы</a></li>
+					<li>Наша почта: forexample@email.com</li>
+					<li>Наш телефон: +7 (123) 456 78 90</li>
 				</ul>
+				{% endif %}
+				<a href="{% url 'comments_page' %}">Озывы</a>
 			</div>
 		</div>
 	</footer>

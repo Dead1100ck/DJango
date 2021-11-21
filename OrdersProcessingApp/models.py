@@ -6,7 +6,7 @@ class Client(models.Model):
 	id_custom_user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 	first_name = models.CharField(max_length=30)
 	second_name = models.CharField(max_length=30)
-	email = models.CharField(max_length=30)
+	email = models.CharField(max_length=30, unique=True)
 	phone = models.CharField(max_length=11, unique=True)
 	
 	def __str__(self):
@@ -16,7 +16,7 @@ class Client(models.Model):
 class Comment(models.Model):
 	first_name = models.CharField(max_length=30)
 	second_name = models.CharField(max_length=30)
-	title = models.CharField(max_length=30, blank=True)
+	title = models.CharField(max_length=30)
 	description = models.TextField()
 	email = models.CharField(max_length=30)
 	id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -25,7 +25,7 @@ class Comment(models.Model):
 		return self.email + " " + self.title
 
 
-class Contract(models.Model):
+class Order(models.Model):
 	task = models.TextField()
 	name_of_project = models.CharField(max_length=30)
 	id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
@@ -35,7 +35,7 @@ class Contract(models.Model):
 
 
 class Team(models.Model):
-	id_contract = models.ForeignKey(Contract, on_delete=models.CASCADE)
+	id_order = models.ForeignKey(Order, on_delete=models.CASCADE)
 
 
 class Project(models.Model):
@@ -53,8 +53,9 @@ class Employee(models.Model):
 	first_name = models.CharField(max_length=30)
 	second_name = models.CharField(max_length=30)
 	address = models.CharField(max_length=50)
-	email = models.CharField(max_length=30)
-	id_team = models.ForeignKey(Team, on_delete=models.CASCADE)
+	email = models.CharField(max_length=30, unique=True)
+	phone = models.CharField(max_length=11, unique=True)
+	id_team = models.ForeignKey(Team, on_delete=models.CASCADE, blank=True, null=True)
 
 	def __str__(self):
 		return self.first_name + ' ' + self.second_name 

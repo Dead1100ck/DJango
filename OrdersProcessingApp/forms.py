@@ -21,3 +21,8 @@ class RegisterForm(forms.Form):
 class LoginForm(forms.Form):
 	login = forms.CharField(label='Логин', max_length='30', widget=forms.TextInput(attrs={'placeholder': 'Логин'}))
 	password = forms.CharField(label='Пароль', max_length='30', widget=forms.PasswordInput(attrs={'placeholder': 'Ваш пароль'}))
+
+
+class CommentForm(forms.Form):
+	title = forms.CharField(label='Придумайте заголовок комментарию или его тему', max_length=30)
+	description = forms.CharField(label='Комментарий', widget=forms.Textarea())

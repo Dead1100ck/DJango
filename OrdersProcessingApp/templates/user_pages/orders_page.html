@@ -1,0 +1,10 @@
+{% if orders == '' %}
+	<h4 class="title">Вы не делали заказов</h4>
+{% else %}
+	{% for c in orders %}
+		<div class="border-bottom">
+			<h4 class="title">{{ c.name_of_project }}</h4>
+			<p class="text big-text">{{ c.task }}</p>
+		</div>
+	{% endfor %}
+{% endif %}

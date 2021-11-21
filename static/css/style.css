@@ -55,6 +55,10 @@ ul {
 	justify-content: space-between;
 }
 
+.home-link {
+	align-self: center;
+}
+
 .menu {
 	display: flex;
 }
@@ -70,6 +74,13 @@ ul {
 .column {
 	width: 100%;
 	padding: 0 1em;
+}
+
+.small-column {
+	width: 40%;
+	padding: 0 1em;
+
+	align-self: center;
 }
 
 .title {
@@ -89,6 +100,10 @@ ul {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+.form-item > input, textarea {
+	width: 100%;
 }
 
 .m-auto {
@@ -128,4 +143,23 @@ ul {
 
 .empty-border {
 	border-left: 1px solid black;
+}
+
+.big-text {
+	line-height: 1.5em;
+}
+
+.width-50 {
+	width: 50%;
+}
+
+.content-wrap {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.column-wrap {
+	flex-grow: 1;
+	margin: 0 1em 2em 1em;
+	flex: 1 1 0;
 }

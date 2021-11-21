@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content">
+	<div class="column">
+		<h3 class="title">Ваш профиль</h3>
+		<table class="info-table m-auto">
+			<tbody>
+				<tr>
+					<td>Логин:</td>
+					<td>{{ user.login }}</td>
+				</tr>
+				<tr>
+					<td>Пароль:</td>
+					<td>{{ user.password }}</td>
+				</tr>
+				<tr>
+					<td>Имя:</td>
+					<td>{{ user.first_name }}</td>
+				</tr>
+				<tr>
+					<td>Фамилия:</td>
+					<td>{{ user.second_name }}</td>
+				</tr>
+				<tr>
+					<td>Email:</td>
+					<td>{{ user.email }}</td>
+				</tr>
+				<tr>
+					<td>Телефон:</td>
+					<td>{{ user.phone }}</td>
+				</tr>
+				<tr>
+					<td>Адрес проживания:</td>
+					<td>{{ user.address }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<div class="column">
+			<h2 class="title">Ваш проект</h3>
+			<h3 class="title">{{ project.name_of_project }}</h3>
+			<p class="big-text">{{ project.description }}</p>
+			<a href="">Завершить работу над проектом</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

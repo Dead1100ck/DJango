@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	{% for o in orders %}
+	<div class="content">
+		<div class="small-column">
+			<h3 class="title">{{ o.name_of_project }}</h3>
+			<p class="text big-text">{{ o.task }}</p>
+			<a href="{% url 'take_order' o.pk %}">Взять заказ</a>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+{% endblock %}
