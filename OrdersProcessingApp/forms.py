@@ -11,12 +11,6 @@ class RegisterForm(forms.Form):
 	password1 = forms.CharField(label='Пароль', max_length='30', widget=forms.PasswordInput(attrs={'placeholder': 'Придумайте пароль'}))
 	password2 = forms.CharField(label='Повторите пароль', max_length='30', widget=forms.PasswordInput(attrs={'placeholder': 'Повторите ваш пароль'}))
 
-	def clean_password2(self):
-		cd = self.cleaned_data
-
-		if cd['password1'] != cd['password2']:
-			raise forms.ValidationError("Пароли не совпадают")
-
 
 class LoginForm(forms.Form):
 	login = forms.CharField(label='Логин', max_length='30', widget=forms.TextInput(attrs={'placeholder': 'Логин'}))
@@ -26,3 +20,8 @@ class LoginForm(forms.Form):
 class CommentForm(forms.Form):
 	title = forms.CharField(label='Придумайте заголовок комментарию или его тему', max_length=30)
 	description = forms.CharField(label='Комментарий', widget=forms.Textarea())
+
+
+class OrderForm(forms.Form):
+	name = forms.CharField(label='Придумайте заголовок своему заказу')
+	description = forms.CharField(label='Опишите что вы хотите получить', widget=forms.Textarea())

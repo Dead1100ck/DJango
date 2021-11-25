@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+	<div class="content">
+		<div class="small-column m-auto">
+			<h3 class="title">{{ order.name }}</h3>
+			<p class="big-text">{{ order.description }}</p>
+
+			{% if order.status == 'В обработке' %}
+			<form method="POST">
+				{% csrf_token %}
+				<input type="number" min=0 max=1000000 name="price" value="Примерная цена">
+				<input type="submit" value="Взять заказ">
+			</form>
+			{% endif %}
+		</div>
+	</div>
+</div>
+{% endblock %}

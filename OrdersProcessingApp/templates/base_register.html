@@ -12,13 +12,17 @@
 			{% for field in form %}
 				<li>{{ field.label }}</li>
 				<li>{{ field }}</li>
-				<li class="field-error">{{ field.errors }}</li>
 				<li class="empty"></li>
 			{% endfor %}
 			</ul>
 			
 			<input class="submit-btn" type="submit" value="Зарегистрироваться">
 		</form>
+		<ul class="error-list">
+			{% for error in errors %}
+				<li>{{ error }}</li>
+			{% endfor %}
+		</ul>
 	</div>
 </div>
 {% endblock %}

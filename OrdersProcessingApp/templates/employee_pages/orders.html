@@ -3,13 +3,15 @@
 {% block content %}
 <div class="container">
 	{% for o in orders %}
+	{% if o.status != 'Завершен' %}
 	<div class="content">
 		<div class="small-column">
-			<h3 class="title">{{ o.name_of_project }}</h3>
-			<p class="text big-text">{{ o.task }}</p>
+			<h3 class="title">{{ o.name }}</h3>
+			<p class="text big-text">{{ o.description }}</p>
 			<a href="{% url 'take_order' o.pk %}">Взять заказ</a>
 		</div>
 	</div>
+	{% endif %}
 	{% endfor %}
 </div>
 {% endblock %}

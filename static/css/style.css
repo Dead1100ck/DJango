@@ -77,8 +77,9 @@ ul {
 }
 
 .small-column {
-	width: 40%;
+	width: 60%;
 	padding: 0 1em;
+	margin: 0 auto;
 
 	align-self: center;
 }
@@ -112,11 +113,6 @@ ul {
 
 .submit-btn {
 	width: 100%;
-}
-
-.field-error {
-	color: red;
-	font-size: 12px;
 }
 
 .empty {
@@ -162,4 +158,21 @@ ul {
 	flex-grow: 1;
 	margin: 0 1em 2em 1em;
 	flex: 1 1 0;
+}
+
+.order-status {
+	color: red;
+	text-align: center;
+	padding-bottom: 1em;
+}
+
+.order-price {
+	color: red;
+	text-align: right;
+}
+
+.error-list {
+	color: red;
+	text-align: center;
+	font-size: 0.9em;
 }

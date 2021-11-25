@@ -1,10 +1,19 @@
 {% if orders == '' %}
 	<h4 class="title">Вы не делали заказов</h4>
 {% else %}
-	{% for c in orders %}
+	{% for o in orders %}
 		<div class="border-bottom">
-			<h4 class="title">{{ c.name_of_project }}</h4>
-			<p class="text big-text">{{ c.task }}</p>
+			<h4 class="order-status">{{ o.status }}</h4>
+			<h4 class="title">{{ o.name }}</h4>
+			<p class="text big-text">{{ o.description }}</p>
+			{% if o.status == 'Ждет подтверждения' %}
+				<p>Стоимость: {{ o.price }} руб.</p>
+				<a href="{% url 'confirm_order' o.id %}">Подтвердить заказ</a>
+				<a href="{% url 'discard_order' o.id %}">Отменить заказ</a>
+			{% endif %}
+			{% if o.status != 'В работе' %}
+				<a href="{% url 'delete_order' o.id %}">Удалить заказ</a>
+			{% endif %}
 		</div>
 	{% endfor %}
 {% endif %}

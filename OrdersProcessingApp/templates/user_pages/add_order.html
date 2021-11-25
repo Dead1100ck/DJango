@@ -3,25 +3,19 @@
 {% block content %}
 <div class="container content m-auto">
 	<div class="form m-auto">
-		<h3 class='title'>Вход в аккаунт</h3>
-
+		<h3 class="title"></h3>
 		<form method="POST">
 			{% csrf_token %}
-
 			<ul>
 			{% for field in form %}
-				<li>{{ field.label }}</li>
-				<li>{{ field }}</li>
-				<li class="field-error">{{ field.errors }}</li>
+				<li class="form-item">{{ field.label }}</li>
+				<li class="form-item">{{ field }}</li>
 				<li class="empty"></li>
 			{% endfor %}
 			</ul>
 
-			<input class="submit-btn" type="submit" value="Войти">
+			<input class="submit-btn" type="submit" value="Заказать">
 		</form>
-		<ul class="error-list">
-			<li>{{ error }}</li>
-		</ul>
 	</div>
 </div>
 {% endblock %}

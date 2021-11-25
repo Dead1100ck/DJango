@@ -18,11 +18,10 @@
 				{% if request.user.is_authenticated and request.user.is_staff %}
 				<ul class="menu">
 					<li><a href="{% url 'employee_orders' %}">Заказы</a></li>
-					<li><a href="">Выполненные заказы</a></li>
 				</ul>
 				{% elif request.user.is_authenticated and not request.user.is_staff %}
 				<ul class="menu">
-					<li><a href="{% url 'user_account_page' %}">Сделать заказ</a></li>
+					<li><a href="{% url 'add_order_page' %}">Сделать заказ</a></li>
 					<li><a href="{% url 'add_comment_page' %}">Оставить комментарий</a></li>
 				</ul>
 				{% endif %}
