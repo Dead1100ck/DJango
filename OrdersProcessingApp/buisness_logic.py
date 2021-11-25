@@ -89,12 +89,14 @@ def set_order_status_discard(id_order):
 
 def delete_user_order(id_order):
 	order = Order.objects.get(id=id_order)
-	team = Team.objects.get(id_order=id_order)
-	employees = Employee.objects.filter(id_team=team.id)
+	
+	if Team.objects.filter(id_order=id_order):
+		team = Team.objects.get(id_order=id_order)
+		employees = Employee.objects.filter(id_team=team.id)
 
-	for employee in employees:
-		employee.id_team = None
-		employee.save()
+		for employee in employees:
+			employee.id_team = None
+			employee.save()
 
 	order.delete()
 
