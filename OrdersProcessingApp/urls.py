@@ -12,7 +12,6 @@ urlpatterns = [
     path('addcomment/', AddComment.as_view(), name='add_comment_page'),
     path('addorder/', AddOrder.as_view(), name='add_order_page'),
     path('confirmorder/<int:id_order>', confirm_order, name='confirm_order'),
-    path('discardorder/<int:id_order>', discard_order, name='discard_order'),
     path('deleteorder/<int:id_order>', delete_order, name='delete_order'),
 
     path('orders/', orders_page, name='employee_orders'),

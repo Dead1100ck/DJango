@@ -2,10 +2,10 @@
 
 {% block content %}
 <div class="container">
-	<div class="content">
-		<div class="column">
+	<div class="row">
+		<div class="column-profile">
 			<h3 class="title">Ваш профиль</h3>
-			<table class="info-table m-auto">
+			<table>
 				<tbody>
 					<tr>
 						<td>Логин:</td>
@@ -36,22 +36,45 @@
 		</div>
 	</div>
 
-	<div class="content border-bottom">
+	<div class="row">
 		<div class="column">
-			<p class="title"><a href="">Список ваших заказов</a></p>
+			<h2 class="title">Заказы</h2>
+			<div class="row">
+				{% if orders == '' %}
+					<h3 >Вы не делали заказов</h3>
+				{% else %}
+					{% for o in orders %}
+						<div class="column-nowrap">
+							<h3>{{ o.status }}</h3>
+							<p class="text-justify">{{ o.description }}</p>
+							{% if o.status == 'Ждет подтверждения' %}
+								<p>Стоимость: {{ o.price }}</p>
+								<a href="{% url 'confirm_order' o.id %}">Подтвердить заказ</a>
+							{% endif %}
+							{% if o.status != 'В работе' %}
+								<a href="{% url 'delete_order' o.id %}">Удалить заказ</a>
+							{% endif %}
+						</div>
+					{% endfor %}
+				{% endif %}
+			</div>
 		</div>
 		<div class="column">
-			<p class="title"><a href="">Список ваших комментариев</a></p>
-		</div>
-	</div>
-
-	<div class="content">
-		<div class="column">
-			{% include 'user_pages/orders_page.html' %}
-		</div>
-		<div class="empty-border"></div>
-		<div class="column">
-			{% include 'user_pages/comments_page.html' %}
+			<h2 class="title">Комментарии</h2>
+			
+			<div class="row">
+				{% if comments == '' %}
+					<h3>Вы не оставляли комментариев</h4>
+				{% else %}
+					{% for c in comments %}
+						<div class="column-nowrap">
+							<h3>{{ c.title }}</h4>
+							<p class="text-justify">{{ c.description }}</p>
+						</div>
+					{% endfor %}
+				{% endif %}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

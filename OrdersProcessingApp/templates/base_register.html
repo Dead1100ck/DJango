@@ -1,28 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Login form</title>
+	<link rel="stylesheet" href="style.css">
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container content m-auto">
-	<div class="form m-auto">
-		<h3 class='title'>Регистрация</h3>
+	<div class="container">
+		<div class="row">
+			<div class="column">
+				<h2 class="title">Регистрация</h2>
+			</div>
+		</div>
+		<div class="row">
+			<form method="POST">
+				{% csrf_token %}
 
-		<form method="POST">
-			{% csrf_token %}
+				{% for field in form %}
+					{{ field }}
+				{% endfor %}
 
-			<ul>
-			{% for field in form %}
-				<li>{{ field.label }}</li>
-				<li>{{ field }}</li>
-				<li class="empty"></li>
-			{% endfor %}
-			</ul>
-			
-			<input class="submit-btn" type="submit" value="Зарегистрироваться">
-		</form>
-		<ul class="error-list">
-			{% for error in errors %}
-				<li>{{ error }}</li>
-			{% endfor %}
-		</ul>
+				<input class="submit-btn" type="submit" value="Зарегистрироваться">
+			</form>
+		</div>
 	</div>
-</div>
 {% endblock %}

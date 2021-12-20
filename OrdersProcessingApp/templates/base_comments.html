@@ -1,19 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-	{% for c in comments %}
-	<div class="content">
-		<div class="comment-column">
-			<p>{{ c.first_name }}</p>
-			<p>{{ c.secomd_name }}</p>
-			<p>{{ c.email }}</p>
-		</div>
-		<div class="column">
-			<h3 class="title">{{ c.title }}</h3>
-			<p class="text big-text">{{ c.description }}</p>
+	<div class="container">
+		<div class="row">
+			{% for c in comments %}
+				<div class="column">
+					<h3>{{ c.first_name }} {{ c.second_name }}</h3>
+					<h4>{{ c.email }}</h4>
+					<h4 class="title-comment">{{ c.title }}</h4>
+					<p class="text-justify">{{ c.description }}</p>
+				</div>
+			{% endfor %}
 		</div>
 	</div>
-	{% endfor %}
-</div>
 {% endblock %}

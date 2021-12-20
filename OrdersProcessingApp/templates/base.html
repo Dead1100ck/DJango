@@ -3,15 +3,15 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 	<title>{{ title }}</title>
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-	<header class="header">
+	<header>
 		<div class="container">
 			<div class="nav">
 				<ul class="menu">
-					<li><a href="/"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a></li>
+					<li><a href="#"><img class="img-logo" src="{% static 'img/logo.png' %}" alt="logo"></a></li>
 					<li class="home-link"><a href="/">На главную</a></li>
 				</ul>
 
@@ -42,29 +42,29 @@
 	<div class="wrapper">
 		{% block content %}
 		<div class="container">
-			<div class="content">
+			<div class="row">
 				<div class="column">
 					<h2 class="title">О нас</h2>
 				</div>
 			</div>
-			<div class="content">
+			<div class="row">
 				<div class="column">
 					<h3 class="title">Чем мы занимаемся?</h3>
-					<p class="text">
+					<p class="text-justify">
 						Наша компания занимается разработкой разного рода приложений под заказ. Быстро, качественно, не дорого.
 					</p>
 				</div>
 
 				<div class="column">
 					<h3 class="title">Как сделать заказ?</h3>
-					<p class="text">
+					<p class="text-justify">
 						Вы можете зарегистрироваться на нашем сайте и оставить заявку, либо прийти в нашу компанию. Статус вашей заявки вы можете посмотреть на сайте, в вашем профиле.
 					</p>
 				</div>
 
 				<div class="column">
 					<h3 class="title">Почему именно мы?</h3>
-					<p class="text">
+					<p class="text-justify">
 						Наши сотрудники работают непокладая рук, что бы сделать ваш проект как можно быстрее, дешевле и качественнее.
 					</p>
 				</div>
@@ -76,7 +76,7 @@
 		{% endblock %}
 	</div>
 
-	<footer class="footer">
+	<footer>
 		<div class="container">
 			<div class="nav">
 				<a href="/"><img src="{% static 'img/logo.png' %}" alt="it's image" class='img-logo'></a>

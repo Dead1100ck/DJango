@@ -1,17 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container">
-	{% for o in orders %}
-	{% if o.status != 'Завершен' %}
-	<div class="content">
-		<div class="small-column">
-			<h3 class="title">{{ o.name }}</h3>
-			<p class="text big-text">{{ o.description }}</p>
-			<a href="{% url 'take_order' o.pk %}">Взять заказ</a>
+	<div class="container">
+		<div class="row">
+			{% for o in orders %}
+			{% if o.status != 'Завершен' %}
+				<div class="column">
+					<h3 class="title">{{ o.name }}</h3>
+					<p class="text-justify">
+						{{ o.description }}
+					</p>
+					<a href="{% url 'take_order' o.pk %}">Взять заказ</a>
+				</div>
+			{% endif %}
+			{% endfor %}
 		</div>
 	</div>
-	{% endif %}
-	{% endfor %}
-</div>
 {% endblock %}

@@ -164,10 +164,6 @@ def confirm_order(request, id_order):
 	set_order_status_work(id_order)
 	return HttpResponseRedirect('/account/')
 
-def discard_order(request, id_order):
-	set_order_status_discard(id_order)
-	return HttpResponseRedirect('/account/')
-
 def delete_order(request, id_order):
 	delete_user_order(id_order)
 	return HttpResponseRedirect('/account/')
@@ -205,6 +201,7 @@ def take_order(request, id_order):
 
 	if request.method == 'POST':
 		set_order_status_confirm(id_order, request.POST['price'])
+		print(request.POST)
 		create_team(request.user, id_order)
 
 		return HttpResponseRedirect('/account/')

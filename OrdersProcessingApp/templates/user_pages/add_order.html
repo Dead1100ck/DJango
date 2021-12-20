@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="container content m-auto">
+<div class="container content m-auto form-content">
 	<div class="form m-auto">
-		<h3 class="title"></h3>
-		<form method="POST">
+		<h3 class="title">Сделать заказ</h3>
+		<form class="form-base" method="POST">
 			{% csrf_token %}
-			<ul>
 			{% for field in form %}
-				<li class="form-item">{{ field.label }}</li>
-				<li class="form-item">{{ field }}</li>
-				<li class="empty"></li>
+				<p class="form-label">{{ field.label }}</p>
+				<p class="form-field">{{ field }}</p>
 			{% endfor %}
-			</ul>
 
-			<input class="submit-btn" type="submit" value="Заказать">
+			<input type="submit" value="Заказать">
 		</form>
 	</div>
 </div>

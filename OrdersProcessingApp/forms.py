@@ -19,9 +19,9 @@ class LoginForm(forms.Form):
 
 class CommentForm(forms.Form):
 	title = forms.CharField(label='Придумайте заголовок комментарию или его тему', max_length=30)
-	description = forms.CharField(label='Комментарий', widget=forms.Textarea())
+	description = forms.CharField(label='Комментарий', widget=forms.Textarea(attrs={'rows':20, 'cols':60}))
 
 
 class OrderForm(forms.Form):
 	name = forms.CharField(label='Придумайте заголовок своему заказу')
-	description = forms.CharField(label='Опишите что вы хотите получить', widget=forms.Textarea())
+	description = forms.CharField(label='Опишите что вы хотите получить', widget=forms.Textarea(attrs={'rows':20, 'cols':60}))

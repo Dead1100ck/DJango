@@ -5,7 +5,6 @@ from CustomUser.models import CustomUser
 
 def get_user(custom_user):
 	if custom_user.is_staff:
-		print(custom_user.id)
 		user = Employee.objects.get(id_custom_user=custom_user.id)
 		return user
 	else:
@@ -80,11 +79,6 @@ def add_comment(custom_user, title, description):
 def set_order_status_work(id_order):
 	order = Order.objects.get(id=id_order)
 	order.status = 'В работе'
-	order.save()
-
-def set_order_status_discard(id_order):
-	order = Order.objects.get(id=id_order)
-	order.status = 'В обработке'
 	order.save()
 
 def delete_user_order(id_order):

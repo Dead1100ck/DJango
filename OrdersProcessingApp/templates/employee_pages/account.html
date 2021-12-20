@@ -2,40 +2,42 @@
 
 {% block content %}
 <div class="content">
-	<div class="column">
-		<h3 class="title">Ваш профиль</h3>
-		<table class="info-table m-auto">
-			<tbody>
-				<tr>
-					<td>Логин:</td>
-					<td>{{ request.user.login }}</td>
-				</tr>
-				<tr>
-					<td>Пароль:</td>
-					<td>{{ request.user.password }}</td>
-				</tr>
-				<tr>
-					<td>Имя:</td>
-					<td>{{ user.first_name }}</td>
-				</tr>
-				<tr>
-					<td>Фамилия:</td>
-					<td>{{ user.second_name }}</td>
-				</tr>
-				<tr>
-					<td>Email:</td>
-					<td>{{ user.email }}</td>
-				</tr>
-				<tr>
-					<td>Телефон:</td>
-					<td>{{ user.phone }}</td>
-				</tr>
-				<tr>
-					<td>Адрес проживания:</td>
-					<td>{{ user.address }}</td>
-				</tr>
-			</tbody>
-		</table>
+	<div class="row">
+		<div class="column-profile">
+			<h3 class="title">Ваш профиль</h3>
+			<table>
+				<tbody>
+					<tr>
+						<td>Логин:</td>
+						<td>{{ request.user.login }}</td>
+					</tr>
+					<tr>
+						<td>Пароль:</td>
+						<td>{{ request.user.password }}</td>
+					</tr>
+					<tr>
+						<td>Имя:</td>
+						<td>{{ user.first_name }}</td>
+					</tr>
+					<tr>
+						<td>Фамилия:</td>
+						<td>{{ user.second_name }}</td>
+					</tr>
+					<tr>
+						<td>Email:</td>
+						<td>{{ user.email }}</td>
+					</tr>
+					<tr>
+						<td>Телефон:</td>
+						<td>{{ user.phone }}</td>
+					</tr>
+					<tr>
+						<td>Адрес проживания:</td>
+						<td>{{ user.address }}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 {% endblock %}

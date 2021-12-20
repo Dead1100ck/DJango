@@ -9,6 +9,8 @@ body {
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
+
+	background-color: lightgray;
 }
 
 html, body {
@@ -17,26 +19,22 @@ html, body {
 	font-stretch: 600;
 }
 
+ul {
+	padding: 0;
+	list-style: none;
+}
+
 a {
 	text-decoration: none;
 	font-size: 22px;
 }
 
+a:link, a:visited {
+	color: darkblue;
+}
+/*Шапка и футер-------------------------------------------------------*/
 header, footer {
 	background-color: steelblue;
-}
-
-footer {
-	flex-shrink: 0;
-}
-
-ul {
-	list-style-type: none;
-	padding: 0;
-}
-
-.wrapper {
-	flex: 1 0 auto;
 }
 
 .img-logo {
@@ -44,19 +42,10 @@ ul {
 	height: 75px;
 }
 
-.container {
-	width: 90%;
-	margin: 0 auto;
-}
-
 .nav {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
-}
-
-.home-link {
-	align-self: center;
 }
 
 .menu {
@@ -67,112 +56,133 @@ ul {
 	padding: 0 5px;
 }
 
-.content {
+.home-link {
+	align-self: center;
+}
+/*--------------------------------------------------------------------*/
+
+/*Основная часть------------------------------------------------------*/
+.wrapper {
+	flex: 1 0 auto;
+}
+
+.container {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.row {
 	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
 }
 
 .column {
-	width: 100%;
-	padding: 0 1em;
-}
-
-.small-column {
-	width: 60%;
-	padding: 0 1em;
-	margin: 0 auto;
-
-	align-self: center;
-}
-
-.title {
-	text-align: center;
-	margin: 1em 0 2em 0;
-}
-
-.text-center {
-	text-align: center;
-}
-
-.text {
-	text-align: justify;
-}
-
-.form {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.form-item > input, textarea {
-	width: 100%;
-}
-
-.m-auto {
-	margin: 0 auto;
-}
-
-.submit-btn {
-	width: 100%;
-}
-
-.empty {
-	margin-bottom: 1em;
-}
-
-.info-table {
-	border: 1px solid black;
-}
-
-.info-table > tbody > tr {
-	margin-bottom: 1em;
-}
-
-.info-table > tbody > tr > td {
-	padding: 1em;
-}
-
-.border-bottom {
-	border-bottom: 1px solid black;
-	padding-top: 1em;
-	padding-bottom: 1em;
-}
-
-.empty-border {
-	border-left: 1px solid black;
-}
-
-.big-text {
-	line-height: 1.5em;
-}
-
-.width-50 {
-	width: 50%;
-}
-
-.content-wrap {
-	display: flex;
-	flex-wrap: wrap;
-}
-
-.column-wrap {
-	flex-grow: 1;
+	min-width: 30%;
+	max-width: 100%;
 	margin: 0 1em 2em 1em;
 	flex: 1 1 0;
 }
 
-.order-status {
-	color: red;
+.title {
 	text-align: center;
-	padding-bottom: 1em;
+
+	margin-top: 3em;
+	margin-bottom: 2em;
 }
 
-.order-price {
-	color: red;
-	text-align: right;
+.text-justify {
+	text-align: justify;
+	margin-bottom: 1em;
+}
+/*--------------------------------------------------------------------*/
+
+/*Профиль-------------------------------------------------------------*/
+.column-profile {
+	width: 50%;
 }
 
-.error-list {
-	color: red;
+.column-profile > table {
+	font-size: 1.2em;
+	margin: 0 auto;
+
+	border: 1px solid black;
+}
+
+.column-profile > table > tbody > tr > td {
+	padding: 1em;
+}
+
+.column-nowrap {
+	width: 100%;
+	margin: 0 1em 2em 1em;
+}
+
+/*--------------------------------------------------------------------*/
+
+/*Комментарии---------------------------------------------------------*/
+.title-comment {
+	margin-bottom: 1em;
+}
+/*--------------------------------------------------------------------*/
+
+/*Форма---------------------------------------------------------------*/
+form {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-bottom: 1em;
+}
+
+form > input {
+	width: 250px;
+	height: 1.5em;
+	margin-bottom: 1em;
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 1.2em;
 	text-align: center;
-	font-size: 0.9em;
+
+	border: 2px solid steelblue;
+	border-radius: 100px;
+
+	transition-duration: 0.25s;
+}
+
+form > input[type="submit"] {
+	border: 2px solid limegreen;
+}
+
+form > input[type="text"]:focus, input[type="password"]:focus {
+	outline: none;
+	width: 120%;
+	border-color: limegreen;
+}
+
+form > input[type="submit"]:hover {
+	background-color: limegreen;
+}
+
+.form-base, .form-field > input, textarea {
+	font-size: 20px;
+}
+
+.form-content, .form > form {
+	height: 90%;
+}
+
+.form-content > .form {
+	height: 100%;
+}
+
+.form-label, .form-field, .form-field > textarea {
+	width: 100%;
+}
+
+.form-field > input {
+	width: 50%;
+}
+
+.form-field {
+	margin-bottom: 1.5em;
 }

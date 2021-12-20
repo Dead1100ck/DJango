@@ -16,8 +16,8 @@ class Client(models.Model):
 class Comment(models.Model):
 	first_name = models.CharField(max_length=30)
 	second_name = models.CharField(max_length=30)
-	title = models.CharField(max_length=30)
-	description = models.TextField()
+	title = models.CharField(max_length=50)
+	description = models.CharField(max_length=500)
 	email = models.CharField(max_length=30)
 	id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
@@ -28,9 +28,9 @@ class Comment(models.Model):
 class Order(models.Model):
 	statuses = [('В обработке', 'В обработке'), ('Ждет подтверждения', 'Ждет подтверждения'), ('В работе', 'В работе'), ('Завершен', 'Завершен')]
 
-	name = models.CharField(max_length=30)
-	description = models.TextField()
-	price = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)
+	name = models.CharField(max_length=50)
+	description = models.CharField(max_length=500)
+	price = models.DecimalField(max_digits=9, decimal_places=2, blank=True, null=True)
 	status = models.CharField(max_length=18, choices=statuses, default="В обработке")
 	id_client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
@@ -39,7 +39,7 @@ class Order(models.Model):
 
 
 class Team(models.Model):
-	name = models.CharField(max_length=40)
+	name = models.CharField(max_length=50)
 	id_order = models.ForeignKey(Order, on_delete=models.CASCADE)
 
 	def __str__(self):
