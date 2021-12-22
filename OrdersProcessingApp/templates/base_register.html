@@ -24,5 +24,13 @@
 				<input class="submit-btn" type="submit" value="Зарегистрироваться">
 			</form>
 		</div>
+
+		<div class="row">
+			<div class="column">
+				{% for error in errors %}
+					<p class="error">{{ error }}</p>
+				{% endfor %}
+			</div>
+		</div>
 	</div>
 {% endblock %}

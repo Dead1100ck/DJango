@@ -21,6 +21,8 @@ def get_register_errors(post):
 		errors.append('Такой email уже используется')
 	if Client.objects.filter(phone=post['phone']) or Employee.objects.filter(phone=post['phone']):
 		errors.append('Такой телефон уже используется')
+	if len(post['phone']) < 11:
+		errors.append('Телефон слишком короткий')
 	if post['password1'] != post['password2']:
 		errors.append('Пароли не совпадают')
 
